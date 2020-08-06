@@ -10,7 +10,7 @@ import Upload from '../../components/Upload';
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
 import alert from '../../assets/alert.svg';
-import api from '../../services/api';
+import api from '../../../../fundamentos-reactjs/src/services/api';
 
 interface FileProps {
   file: File;

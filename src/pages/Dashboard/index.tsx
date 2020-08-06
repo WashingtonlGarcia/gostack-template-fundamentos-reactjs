@@ -4,7 +4,7 @@ import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 
-import api from '../../services/api';
+import api from '../../../../fundamentos-reactjs/src/services/api';
 
 import Header from '../../components/Header';
 
