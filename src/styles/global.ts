@@ -1,4 +1,4 @@
-import { createGlobalStyle } from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {

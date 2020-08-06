@@ -1,4 +1,4 @@
-import styled from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/styled-components';
+import styled from 'styled-components';
 
 interface CardProps {
   total?: boolean;

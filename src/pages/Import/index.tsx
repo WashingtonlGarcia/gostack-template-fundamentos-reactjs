@@ -1,4 +1,5 @@
-import React, { useState } from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import filesize from 'filesize';
 
@@ -9,7 +10,7 @@ import Upload from '../../components/Upload';
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
 import alert from '../../assets/alert.svg';
-import api from '../../../../gostack-template-typeorm-relations/desafio-fundamentos-reactjs/src/services/api';
+import api from '../../services/api';
 
 interface FileProps {
   file: File;
@@ -19,38 +20,32 @@ interface FileProps {
 
 const Import: React.FC = () => {
   const [uploadedFiles, setUploadedFiles] = useState<FileProps[]>([]);
+  const history = useHistory();
 
   async function handleUpload(): Promise<void> {
-    const data = new FormData();
-    uploadedFiles.map((file) => {
-      data.append('file', file.file);
-      return true;
+    const formData = new FormData();
+
+    uploadedFiles.forEach(uploadedFile => {
+      formData.append('file', uploadedFile.file);
     });
+
     try {
-      const files = data.getAll('file');
-      for (const file of files) {
-        const importFile = new FormData();
-        importFile.append('file', file);
-        await api.post('/transactions/import', importFile);
-        importFile.delete('file');
-      }
-      setUploadedFiles([]);
+      await api.post('transactions/import', formData);
+
+      history.push('/');
     } catch (err) {
       console.log(err.response.error);
     }
   }
 
   function submitFile(files: File[]): void {
-    const newFiles: FileProps[] = files.map((file) => {
-      const newFile = {
+    setUploadedFiles(
+      files.map(file => ({
         file,
         name: file.name,
-        readableSize: filesize(file.size),
-      };
-
-      return newFile;
-    });
-    setUploadedFiles([...uploadedFiles, ...newFiles]);
+        readableSize: filesize(file.size, { locale: 'pt' }),
+      })),
+    );
   }
 
   return (
