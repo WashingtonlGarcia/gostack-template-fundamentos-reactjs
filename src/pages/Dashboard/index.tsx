@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/react';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 
-import api from '../../services/api';
+import api from '../../../../gostack-template-typeorm-relations/desafio-fundamentos-reactjs/src/services/api';
 
 import Header from '../../components/Header';
 

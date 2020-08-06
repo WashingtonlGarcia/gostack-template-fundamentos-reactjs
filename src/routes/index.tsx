@@ -1,6 +1,6 @@
-import React from 'react';
+import React from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/react';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from '../../gostack-template-fundamentos-reactjs/src/components/Header/node_modules/react-router-dom';
 
 import Dashboard from '../pages/Dashboard';
 import Import from '../pages/Import';

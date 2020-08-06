@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from '../../gostack-template-fundamentos-reactjs/src/components/FileList/node_modules/react';
 
 import filesize from 'filesize';
 
@@ -9,7 +9,7 @@ import Upload from '../../components/Upload';
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
 import alert from '../../assets/alert.svg';
-import api from '../../services/api';
+import api from '../../../../gostack-template-typeorm-relations/desafio-fundamentos-reactjs/src/services/api';
 
 interface FileProps {
   file: File;
